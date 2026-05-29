@@ -223,6 +223,16 @@
                     <div><h2 class="text-2xl font-black text-gray-800">الإعدادات</h2></div>
                 </div>
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6">
+                    <div class="bg-blue-50 border border-blue-200 p-5 rounded-2xl flex gap-3 text-primary">
+                        <i class="fa-solid fa-lightbulb text-2xl text-yellow-500 mt-1"></i>
+                        <div>
+                            <h4 class="font-black mb-1">ميزة التقييمات وتخصيص الأسماء</h4>
+                            <p class="text-sm font-bold opacity-90 leading-relaxed">
+                                - سيتم إرفاق رابط تقييم الخدمة تلقائياً في نهاية أي رسالة واتساب ترسلها.<br>
+                                - استخدم كلمة <strong>[الاسم]</strong> لتبديلها تلقائياً باسم المخدوم الأول.
+                            </p>
+                        </div>
+                    </div>
                     <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
                         <label class="block font-black mb-2 text-lg dynamic-theme-text"><i class="fa-solid fa-phone ml-2"></i> رقم الواتساب الخاص بك:</label>
                         <input type="tel" id="senderPhoneSetting" dir="ltr" class="w-full p-4 border-2 border-white outline-none font-bold text-lg rounded-xl text-left shadow-sm dynamic-theme-border focus:ring-2">
@@ -339,17 +349,18 @@
 
         function getCollectionPath(colName) { return collection(dbFirestore, colName); }
 
+        // تم تحديث الرقم السري لكل الصفوف والمراحل لـ 360 بنجاح
         const MEETINGS = {
-            'kg': { id: 'kg', title: 'مرحلة حضانه', password: '111', icon: 'fa-baby', color: '#10b981', gradient: 'from-emerald-900 to-emerald-500', navActive: 'active-kg' },
-            'p1': { id: 'p1', title: 'الصف الأول الابتدائي', password: '111', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
-            'p2': { id: 'p2', title: 'الصف الثاني الابتدائي', password: '111', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
-            'p3': { id: 'p3', title: 'الصف الثالث الابتدائي', password: '111', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
-            'p4': { id: 'p4', title: 'الصف الرابع الابتدائي', password: '111', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
-            'p5': { id: 'p5', title: 'الصف الخامس الابتدائي', password: '111', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
-            'p6': { id: 'p6', title: 'الصف السادس الابتدائي', password: '111', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
-            'prep1': { id: 'prep1', title: 'الصف الأول الإعدادي', password: '111', icon: 'fa-user-graduate', color: '#8b5cf6', gradient: 'from-purple-900 to-purple-500', navActive: 'active-uni' },
-            'prep2': { id: 'prep2', title: 'الصف الثاني الإعدادي', password: '111', icon: 'fa-user-graduate', color: '#8b5cf6', gradient: 'from-purple-900 to-purple-500', navActive: 'active-uni' },
-            'prep3': { id: 'prep3', title: 'الصف الثالث الإعدادي', password: '111', icon: 'fa-user-graduate', color: '#8b5cf6', gradient: 'from-purple-900 to-purple-500', navActive: 'active-uni' }
+            'kg': { id: 'kg', title: 'مرحلة حضانه', password: '360', icon: 'fa-baby', color: '#10b981', gradient: 'from-emerald-900 to-emerald-500', navActive: 'active-kg' },
+            'p1': { id: 'p1', title: 'الصف الأول الابتدائي', password: '360', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
+            'p2': { id: 'p2', title: 'الصف الثاني الابتدائي', password: '360', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
+            'p3': { id: 'p3', title: 'الصف الثالث الابتدائي', password: '360', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
+            'p4': { id: 'p4', title: 'الصف الرابع الابتدائي', password: '360', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
+            'p5': { id: 'p5', title: 'الصف الخامس الابتدائي', password: '360', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
+            'p6': { id: 'p6', title: 'الصف السادس الابتدائي', password: '360', icon: 'fa-child', color: '#1e3a8a', gradient: 'from-blue-900 to-blue-500', navActive: 'active' },
+            'prep1': { id: 'prep1', title: 'الصف الأول الإعدادي', password: '360', icon: 'fa-user-graduate', color: '#8b5cf6', gradient: 'from-purple-900 to-purple-500', navActive: 'active-uni' },
+            'prep2': { id: 'prep2', title: 'الصف الثاني الإعدادي', password: '360', icon: 'fa-user-graduate', color: '#8b5cf6', gradient: 'from-purple-900 to-purple-500', navActive: 'active-uni' },
+            'prep3': { id: 'prep3', title: 'الصف الثالث الإعدادي', password: '360', icon: 'fa-user-graduate', color: '#8b5cf6', gradient: 'from-purple-900 to-purple-500', navActive: 'active-uni' }
         };
 
         let currentMeetingId = null;
@@ -504,7 +515,6 @@
             document.querySelectorAll('.dynamic-theme-text').forEach(el => el.style.color = mtg.color);
             document.querySelectorAll('.dynamic-theme-border').forEach(el => el.onfocus = () => el.style.borderColor = mtg.color);
             
-            // تطبيق الألوان على الأزرار بشكل آمن
             document.getElementById('btnSaveNew').style.backgroundColor = mtg.color;
             document.getElementById('btnSaveEdit').style.backgroundColor = mtg.color;
 
@@ -525,6 +535,7 @@
         window.openModal = (id) => document.getElementById(id).classList.remove('hide');
         window.closeModal = (id) => document.getElementById(id).classList.add('hide');
 
+        // --- ههنا تم ربط وإشهار الدوال لـ window لضمان استدعائها من الـ DOM بنجاح ---
         window.saveNewMakhdoom = async () => {
             const name = document.getElementById('newMakhdoomName').value.trim();
             const phone = document.getElementById('newMakhdoomPhone').value.trim();
