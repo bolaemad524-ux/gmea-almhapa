@@ -275,7 +275,7 @@
                     <input type="checkbox" id="markPresentNow" checked class="w-6 h-6 text-green-600 rounded cursor-pointer">
                     <label for="markPresentNow" class="mr-3 text-green-800 font-bold cursor-pointer">تسجيله كحاضر في اجتماع اليوم فوراً</label>
                 </div>
-                <button onclick="window.saveNewMakhdoom()" id="btnSaveNew" class="w-full text-white py-4 rounded-xl font-black shadow-lg transition mt-4 text-lg dynamic-theme-btn-main">حفظ بيانات المخدوم</button>
+                <button onclick="window.saveNewMakhdoom()" id="btnSaveNew" class="w-full text-white py-4 rounded-xl font-black shadow-lg transition mt-4 text-lg">حفظ بيانات المخدوم</button>
             </div>
         </div>
     </div>
@@ -291,7 +291,7 @@
                 <div><label class="block text-sm font-bold text-gray-700 mb-2">الواتساب</label><input type="tel" id="editMakhdoomPhone" dir="ltr" class="w-full p-4 border-2 rounded-xl outline-none bg-gray-50 text-left font-bold dynamic-theme-border"></div>
                 <div><label class="block text-sm font-bold text-gray-700 mb-2">تاريخ الميلاد</label><input type="date" id="editMakhdoomDob" class="w-full p-4 border-2 rounded-xl outline-none bg-gray-50 text-right font-bold dynamic-theme-border"></div>
                 <div><label class="block text-sm font-bold text-gray-700 mb-2">العنوان</label><input type="text" id="editMakhdoomAddress" class="w-full p-4 border-2 rounded-xl outline-none bg-gray-50 font-bold dynamic-theme-border"></div>
-                <button onclick="window.saveEditMakhdoom()" id="btnSaveEdit" class="w-full text-white py-4 rounded-xl font-black shadow-lg mt-4 dynamic-theme-btn-main">تحديث البيانات</button>
+                <button onclick="window.saveEditMakhdoom()" id="btnSaveEdit" class="w-full text-white py-4 rounded-xl font-black shadow-lg mt-4">تحديث البيانات</button>
             </div>
         </div>
     </div>
@@ -503,6 +503,11 @@
             document.getElementById('mobileHeader').style.backgroundColor = mtg.color;
             document.querySelectorAll('.dynamic-theme-text').forEach(el => el.style.color = mtg.color);
             document.querySelectorAll('.dynamic-theme-border').forEach(el => el.onfocus = () => el.style.borderColor = mtg.color);
+            
+            // تطبيق الألوان على الأزرار بشكل آمن
+            document.getElementById('btnSaveNew').style.backgroundColor = mtg.color;
+            document.getElementById('btnSaveEdit').style.backgroundColor = mtg.color;
+
             document.querySelectorAll('.dynamic-theme-btn').forEach(el => { el.className = `text-white px-8 py-4 rounded-2xl font-black shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center whitespace-nowrap text-lg dynamic-theme-btn`; el.style.backgroundColor = mtg.color; });
             document.querySelectorAll('.dynamic-theme-btn-main').forEach(el => { el.className = `w-full md:w-auto text-white px-10 py-4 rounded-xl font-black shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center text-lg dynamic-theme-btn-main`; el.style.backgroundColor = mtg.color; });
             document.querySelectorAll('.dynamic-theme-bg').forEach(el => el.className = `p-6 text-white flex justify-between items-center shrink-0 dynamic-theme-bg bg-gradient-to-r ${mtg.gradient}`);
